@@ -8,7 +8,7 @@ Releng team planning
 
 ## Background
 
-**Note: heavily influenced and copied from [taskcluster-rfcs](https://github.com/taskcluster/taskcluster-rfcs)
+**Note**: heavily influenced and copied from [taskcluster-rfcs](https://github.com/taskcluster/taskcluster-rfcs)
 
 **What**: Ideas and projects of the Releng Team, in one discoverable place.
 
