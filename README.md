@@ -2,7 +2,7 @@
 
 Releng team planning
 
-* [Issues](https://github.com/mozilla-releng/releng-rfcs/issues) are generally used by outside teams for suggestions or to enlist help in drafting an RFC.
+* [Issues](https://github.com/mozilla-releng/releng-rfcs/issues) are generally used to identify a goal and solution or to enlist help in drafting an RFC.
 * [pull requests](https://github.com/mozilla-releng/releng-rfcs/pulls) contain drafts and proposed RFCs; and
 * [the repo](rfcs/) holds RFCs on which we have been fully decided on.
 
