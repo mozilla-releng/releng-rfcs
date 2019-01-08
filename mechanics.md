@@ -7,7 +7,6 @@ So, how do I use this?
 At this stage, you are trying to identify a goal and potential solution. These are defined as:
 
 * a pretty specific goal: a user story ("Users can..."), dependency ("This will allow ..") or a completion condition ("All services .."); and
- 
 * some vague idea of how this might be accomplished, or a few alternatives.
   
 If already have this, feel free to skip to the [idea phase](#idea-phase)
@@ -34,11 +33,9 @@ Once you have a goal and potential solution, you can create a PR.
 * Copy [`template.txt`](rfcs/template.txt) to `rfcs/xxxx-<rfc-title>.md`.
   Fill in the first few sections, but feel free to leave things TBD at this stage.
   Commit it to a branch, push, and make a pull request.
-
 * Once you have the pull request number, modify the filename to include it (`rfcs/<number>-<rfc-title>.md`).
   Replace `<number>` in the file with the PR number as well.
   Push again.
-
 * Label the PR `Phase: Draft`
 
 ### Open PR for comments
