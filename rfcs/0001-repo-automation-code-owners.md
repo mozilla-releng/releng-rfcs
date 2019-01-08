@@ -17,7 +17,7 @@ Example `CODEOWNERS` file:
 ```
 /tools @mozilla-mobile/releng
 /automation @mozilla-mobile/releng
-/.github/CODEOWNERS @mozilla-mobile/releng
+/.github @mozilla-mobile/releng
 ```
 
 # Open Questions
