@@ -13,7 +13,7 @@
 # Details
 
 <how will this be implemented? what does it depend on? what are the
-compatibility concerns?
+compatibility concerns?>
 
 # Open Questions
 

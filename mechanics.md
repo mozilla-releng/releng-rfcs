@@ -30,7 +30,7 @@ After creating the issue, feel free to leave it open, iterate on it more, or pin
 
 Once you have a goal and potential solution, you can create a PR.
 
-* Copy [`template.txt`](rfcs/template.txt) to `rfcs/xxxx-<rfc-title>.md`.
+* Copy [`template.md`](rfcs/template.md) to `rfcs/xxxx-<rfc-title>.md`.
   Fill in the first few sections, but feel free to leave things TBD at this stage.
   Commit it to a branch, push, and make a pull request.
 * Once you have the pull request number, modify the filename to include it (`rfcs/<number>-<rfc-title>.md`).
