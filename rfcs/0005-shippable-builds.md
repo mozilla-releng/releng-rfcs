@@ -1,6 +1,6 @@
-# RFC <number> - Shippable Builds
-* Comments: [#<number>](https://api.github.com/repos/mozilla-releng/releng-rfcs/issues/<number>)
-* Proposed by: @<yourname>
+# RFC 5 - Shippable Builds
+* Comments: [#5](https://api.github.com/repos/mozilla-releng/releng-rfcs/issues/5)
+* Proposed by: @Callek
 
 # Summary
 
