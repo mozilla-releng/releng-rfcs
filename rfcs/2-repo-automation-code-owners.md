@@ -1,4 +1,5 @@
-# RFC 0001 - Repo automation `CODEOWNERS`
+# RFC 2 - Repo automation `CODEOWNERS`
+* Comments: [#2](https://api.github.com/repos/mozilla-releng/releng-rfcs/issues/2)
 * Proposed by: @mitchhentges
 
 # Summary
