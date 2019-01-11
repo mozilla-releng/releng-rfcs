@@ -32,8 +32,8 @@ There will be a second stage to this work that entails what we call "Nightly Pro
 # Open Questions
 
 * Conflicts with plan to reduce tests? [1]
-** I do not suspect there will be any negative interactions with this plan, and the reduction of tests will only further emphasize
-   the benefits of shippable builds.
+  * I do not suspect there will be any negative interactions with this plan, and the reduction of tests will only further emphasize
+    the benefits of shippable builds.
 
 [1] - https://groups.google.com/d/msg/mozilla.dev.platform/0dYGajwXCBc/4cpYrUMyBgAJ (Joel's Plan)
 
