@@ -1,5 +1,5 @@
-# RFC <number> - Pushapkscript move product-specific behaviour to config
-* Comments: [#<number>](https://api.github.com/repos/mozilla-releng/releng-rfcs/issues/<number>)
+# RFC 6 - Pushapkscript move product-specific behaviour to config
+* Comments: [#6](https://api.github.com/repos/mozilla-releng/releng-rfcs/issues/6)
 * Original RFC: [in `pushapkscript`](https://github.com/mozilla-releng/pushapkscript/issues/65)
 * Proposed by: @mitchhentges
 
@@ -33,15 +33,15 @@ I'm not sure what value this configuration adds - if a product isn't allowed to 
 
 * [`pushapkscript` - `_DIGEST_ALGORITHM_PER_ANDROID_PRODUCT`](https://github.com/mozilla-releng/pushapkscript/blob/5b2258d529caf79b49aa4014fd77d1b39db9a571/pushapkscript/manifest.py#L21)
 
-We could add a `digestAlgorithm` property to the `payload`
+We could add a `digestAlgorithm` property to the `config` for each product
 
 * [`pushapkscript` - uploading strings](https://github.com/mozilla-releng/pushapkscript/blob/5b2258d529caf79b49aa4014fd77d1b39db9a571/pushapkscript/script.py#L34-L41)
 
-We can add a boolean property to `payload` like `includesGooglePlayStrings`
+We can add a boolean property like `includesGooglePlayStrings` to `config` for each product
 
 * [`mozapkpublisher` - cross checks](https://github.com/mozilla-releng/mozapkpublisher/blob/master/mozapkpublisher/common/apk/checker.py#L24)
 
-Provide a list of `skipChecks` in the `payload`. 
+Provide a list of `skipChecks` in the `config` for each product. 
 
 * [`mozapkpublisher` - `extract_metadata`](https://github.com/mozilla-releng/mozapkpublisher/blob/master/mozapkpublisher/common/apk/extractor.py#L44-L53)
 
@@ -49,7 +49,7 @@ Not sure how this can be handled elegantly - perhaps inferred from `skipChecks`?
 
 * [`mozapkpublisher` - `_ADDITIONAL_TRACK_VALUES`](https://github.com/mozilla-releng/mozapkpublisher/blob/master/mozapkpublisher/common/googleplay.py)
 
-We can provide this in `payload`, though then we'll just be providing both `track` and `setOfValidTracksToAssertAgainst`, which is kind of like:
+We can provide this in `config` for each product, though then we'll just be providing both `track` and `setOfValidTracksToAssertAgainst`, which is kind of like:
 
 ```
 let track = 'nightly'
