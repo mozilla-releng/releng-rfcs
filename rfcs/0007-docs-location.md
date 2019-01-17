@@ -1,5 +1,5 @@
-# RFC <number> - Location of docs
-* Comments: [#<number>](https://api.github.com/repos/mozilla-releng/releng-rfcs/issues/<number>)
+# RFC 7 - Location of docs
+* Comments: [#7](https://api.github.com/repos/mozilla-releng/releng-rfcs/issues/7)
 * Proposed by: @mitchhentges
 
 # Summary
