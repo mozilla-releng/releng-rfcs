@@ -1,5 +1,5 @@
-# RFC <number> - Package caching proxy
-* Comments: [#<number>](https://api.github.com/repos/mozilla-releng/releng-rfcs/issues/<number>)
+# RFC 10 - Package caching proxy
+* Comments: [#10](https://api.github.com/repos/mozilla-releng/releng-rfcs/issues/10)
 * Earlier discussion: [#4](https://github.com/mozilla-releng/releng-rfcs/issues/4)
 * Proposed by: @mitchhentges
 
