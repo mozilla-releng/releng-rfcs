@@ -13,18 +13,18 @@ We have 10 \*scripts in puppet currently, and are looking at adding more. Curren
 This proves challenging for:
 
 * discoverability. If you want to find all of the scriptworker \*scripts, you can browse the mozilla-releng organization for any repos that seem to match the right naming scheme. As the number of repos increase, or if a \*script is outside the mozilla-releng org for any reason, it will get worse.
-* consistency in \*script behavior.
-* consistency in github automation.
-* consistency in \*script deployment.
-* making changes across \*scripts.
+* consistency in \*script behavior. Outside of recommended behaviors and the shared code in `scriptworker.client`, the separate repos lend themselves to divergence of behavior.
+* consistency in github automation. Similar to the \*script behavior, the travis+pyup+code coverage automation configurations have already diverged.
+* consistency in \*script deployment. With each maintainer defining their own behaviors, we've deployed some \*scripts to pypi, added towncrier to some.
+* making changes across \*scripts. We've had a few instances of this in recent memory, where someone has to create PRs across 10+ repos.
 
 Moving to a monorepo for \*scripts improves all of the above:
 
 * discoverability: if you find the monorepo, you've found all of the \*scripts.
 * consistency in \*script behavior: it's possible to inspect and modify \*scripts' behavior in a single place.
-* consistency in github automation:
-* consistency in \*script deployment:
-* making changes across \*scripts:
+* consistency in github automation: with a single `.travis.yml` and/or `.taskcluster.yml`, and a single repo to point other services at (e.g. code coverage, pyup).
+* consistency in \*script deployment: we're currently planning on converging on nix, but even nix-based solutions could diverge over 10+ repos. The monorepo allows us to configure them all from the same place.
+* making changes across \*scripts: even if we want to make a sweeping change, we could find the relevant scripts in the same repo.
 
 We are still able to make exceptions for behavior in \*scripts when needed. For example, we could have exceptions to allow balrogscript to run on py2, until we address that issue. We should be able to temporarily branch and/or keep a \*script on an older codebase (e.g. by not deploying the latest to production) if needed.
 
