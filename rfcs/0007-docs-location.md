@@ -28,6 +28,9 @@ Follow the approach laid out in [`taskcluster-docs`](https://github.com/taskclus
 * Should we have releng-desktop.readthedocs.io and releng-mobile.readthedocs.io?
     * Should we have two separate docs sites, but tweak the above names?
     * Should we have all releng docs shared in a single site?
+* How should we handle the [in-tree docs](https://firefox-source-docs.mozilla.org/taskcluster/taskcluster/release-promotion.html)
+    * Move them to our new docs repository? Keep the in-tree docs, but have define how to decide whether new docs go in-tree or in-new-repository?
+* Should we handle [`warrior-docs`](https://github.com/mozilla-releng/releasewarrior-2.0/tree/master/docs) as part of this RFC, or wait until Ship-it v2 to migrate into that?
 
 # Implementation
 
