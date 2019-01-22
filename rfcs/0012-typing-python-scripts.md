@@ -1,5 +1,5 @@
-# RFC <number> - Typing Python Scripts
-* Comments: [#<number>](https://api.github.com/repos/mozilla-releng/releng-rfcs/issues/<number>)
+# RFC 12 - Typing Python Scripts
+* Comments: [#12](https://api.github.com/repos/mozilla-releng/releng-rfcs/issues/12)
 * Proposed by: @mitchhentges
 
 # Summary
@@ -19,6 +19,7 @@ Just as if introducing Typescript to a Javascript codebase (or Kotlin to Java), 
 Typed functions interact properly with untyped functions, so refactoring the entire codebase at once isn't necessary.
 
 [PEP 484 has a section on `*args` and `**kwargs`](https://www.python.org/dev/peps/pep-0484/#arbitrary-argument-lists-and-default-argument-values).
+
 Note: typings are ignored in production.
 
 # Open Questions
