@@ -5,7 +5,7 @@
 # Summary
 
 [Typing hinting is in the Python standard library as of Python 3.5](https://docs.python.org/3/library/typing.html).
-We should slowly introduce it into our `*scripts` and `scriptworker`
+We should organically add type hints to functions and data types that would benefit most, starting within our `*scripts` and `scriptworker`.
 
 ## Motivation
 
@@ -23,5 +23,8 @@ Typed functions interact properly with untyped functions, so refactoring the ent
 Note: typings are ignored in production.
 
 # Open Questions
+
+* Should we using tooling such as `mypy` in CI to statically analyze our typings?
+    * Suggestion: perhaps we could add it to CI, but not let it fail the build? Watch this closely, and re-visit whether it's useful in a month or two? 
 
 # Implementation
