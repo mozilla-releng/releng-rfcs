@@ -21,11 +21,11 @@ Example `CODEOWNERS` file:
 /.github @mozilla-mobile/releng
 ```
 
+This file will be put in `.github/CODEOWNERS`.
+We will use the mobile-specific @mozilla-mobile/releng team in mobile repositories, and @mozilla-releng/releng as the owner within non-mobile repositories.
+
 # Open Questions
 
-* [ ] This is more complicated than just configuring ownership for an entire repository. Is this tradeoff worth it?
-* [ ] Where should this file go? (root of repo, `.github/CODEOWNERS`, `docs/CODEOWNERS`)?
-* [ ] We have two releng teams: @mozilla-mobile/releng and @mozilla-releng/releng. Should we assign the mobile releng team to releng projects, and other relevant projects to the larger releng team? Should we assign all to just the larger releng team?
 
 # Implementation
 
