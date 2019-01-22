@@ -12,7 +12,7 @@ Right now, it's possible for product-level changes in automation to happen witho
 
 # Details
 
-We will use the [Github "code owners"](https://help.github.com/articles/about-code-owners/) feature to declare the `automation` (or `tools`) directory to be "owned by" releng. This will assign us as reviewers to changes to this code. However, we will configure this so that review from releng isn't _required_, so that we don't hinder any product team progress.
+We will use the [Github "code owners"](https://help.github.com/articles/about-code-owners/) feature to declare the `automation` (or `tools`) directory to be "owned by" releng. This will assign us as reviewers to changes to this code. 
 
 Example `CODEOWNERS` file:
 ```
@@ -23,6 +23,9 @@ Example `CODEOWNERS` file:
 
 This file will be put in `.github/CODEOWNERS`.
 We will use the mobile-specific @mozilla-mobile/releng team in mobile repositories, and @mozilla-releng/releng as the owner within non-mobile repositories.
+
+We will configure this so that review from releng isn't _required_, so that we don't hinder any product team progress. This can be configured by not checking the "Require review from Code Owners" option.
+![screenshot of github settings](https://help.github.com/assets/images/help/repository/PR-review-required-code-owner.png)
 
 # Open Questions
 
