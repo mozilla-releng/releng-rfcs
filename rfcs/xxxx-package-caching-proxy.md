@@ -32,6 +32,13 @@ We discussed using TC caches in our [earlier discussion](https://github.com/mozi
 
 # Open Questions
 
+* Who should set up and maintain this machine?
+    * Proposal: RelOps creates instance, RelEng set up software and maintain
+* I'm assuming [Cross-region caches](https://github.com/mozilla-releng/releng-rfcs/issues/4#issuecomment-452494805) means that there's a cache in each region. How should we handle propagating updates to the `$n` servers we'll have running? Leave to RelOps?
+    * Will we want builds in region A use the caching proxy in region A? How do we want to set that up (since we can't hard-code package repositories in project build config in this case)?
+* How should downtime be handled? 
+    * Have two caching servers per region? Or:
+    * Have projects depend on servers in multiple regions?
 
 # Implementation
 
