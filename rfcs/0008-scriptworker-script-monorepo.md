@@ -48,11 +48,13 @@ We need to have ways of excluding or special-casing \*scripts. `balrogscript` is
 
 We need a way to handle applescript and balrogscript differently from the rest of the \*scripts.
 
-We haven't touched binary transparency in a long time; perhaps we should call this not-yet-production-ready and wait to move it?
-
 Do we call it mozilla-releng/scriptworker-scripts ?
 
 Specific details about directory layouts, tox.ini per subdirectory or top level?, pyup pinning standards? nix?, code coverage service?, but I imagine we will decide on something good, and have the capability of changing it in the future without having to touch 10+ repos for consistency.
+
+Do we combine all releng [python] repos into one?
+
+Versioning and tagging rules. Does Nix make this obsolete?
 
 # Implementation
 
