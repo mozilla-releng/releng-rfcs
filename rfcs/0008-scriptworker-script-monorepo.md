@@ -32,6 +32,7 @@ We are still able to make exceptions for behavior in \*scripts when needed. For 
 
 # Details
 
+## Proposal 1
 We create a github repo, `mozilla-releng/scriptworker-scripts`. We move the code from `scriptworker.client` into a `scriptworker-client` subdirectory, with its own `setup.py`. Tests will go under each subdirectly, e.g. `scriptworker-client/tests/` or `signingscript/tests`. We can move each production-ready, releng-maintained \*script into the monorepo over time.
 
 Each \*script will have its own `setup.py`.
@@ -44,6 +45,19 @@ We can do things like pyup dependency pinning across the repo like we do with pu
 
 We need to have ways of excluding or special-casing \*scripts. `balrogscript` is py2; the upcoming `applescript` will be targeted towards running on mac hosts instead of deployed through kubernetes.
 
+## Proposal 2
+We gradually begin moving our \*scripts into the [release-services](https://github.com/mozilla/release-services) repo, as we nixify and prepare each one for deployment into GCP.
+
+Each \*script will still have its own `setup.py` and its own `tests/` subdirectory.
+
+Any change in shared behavior should still span all \*scripts as applicable.
+
+We need to adjust the release-services taskgraph and deployment story to also support \*script deployment processes and cadences. Most likely we need a way to easily release a subset of projects inside the repo, and exclude projects from the current services release cadence.
+
+Most likely our pinning will happen through nix.
+
+We need to have ways of excluding or special-casing \*scripts. `balrogscript` is py2; the upcoming `applescript` will be targeted towards running on mac hosts instead of deployed through kubernetes.
+
 # Open Questions
 
 We need a way to handle applescript and balrogscript differently from the rest of the \*scripts.
@@ -52,7 +66,7 @@ Do we call it mozilla-releng/scriptworker-scripts ?
 
 Specific details about directory layouts, tox.ini per subdirectory or top level?, pyup pinning standards? nix?, code coverage service?, but I imagine we will decide on something good, and have the capability of changing it in the future without having to touch 10+ repos for consistency.
 
-Do we combine all releng [python] repos into one?
+Do we go with option 1 or 2? (\*scripts living with \*services or no?)
 
 Versioning and tagging rules. Does Nix make this obsolete?
 
