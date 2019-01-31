@@ -66,13 +66,13 @@ These numbers also greatly reduce in quantity when including only recent version
 Unless no new information as to reasons we shouldn't do this, I will be going ahead with implementation with intended landing
 on Feb 5, 2019.
 
+* Investigate if Fennec nightly updates are still needed in Balrog
+   * [Bug 1387643](https://bugzil.la/1387643)
 * Disable Balrog Submission of new builds for all channels
-   * Bug XXXX
+   * [Bug 1524394](https://buzgil.la/1524394)
 * Disable in-product updater for all version of Fennec
-   * Bug XXXX
+   * [Bug 1520248](https://bugzil.la/1520248)
 
-* <link to tracker bug, issue, etc.>
-* <...>
 
 # FAQ
 
