@@ -1,5 +1,5 @@
-# RFC <number> - Use production versions for scripts
-* Comments: [#<number>](https://api.github.com/repos/mozilla-releng/releng-rfcs/issues/<number>)
+# RFC 14 - Use production versions for scripts
+* Comments: [#14](https://api.github.com/repos/mozilla-releng/releng-rfcs/issues/14)
 * Proposed by: @mitchhentges, on behalf of discussion [in bug 1524248](https://bugzilla.mozilla.org/show_bug.cgi?id=1524248) 
 
 # Summary
