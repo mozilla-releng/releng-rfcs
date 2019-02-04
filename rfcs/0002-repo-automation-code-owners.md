@@ -21,14 +21,16 @@ Example `CODEOWNERS` file:
 /.github @mozilla-mobile/releng
 ```
 
-This file will be put in `.github/CODEOWNERS`.
+This file will be put in `.github/CODEOWNERS`, unless one exists in the repository already.
 We will use the mobile-specific @mozilla-mobile/releng team in mobile repositories, and @mozilla-releng/releng as the owner within non-mobile repositories.
 
-We will configure this so that review from releng isn't _required_, so that we don't hinder any product team progress. This can be configured by not checking the "Require review from Code Owners" option.
+We don't want to block merges with our reviews, and we will ensure this on a repository-bases by either:
+This will be solved on a repository-basis by either:
+* Ensuring that the associated releng team isn't the only owner of the automation files.
+* Disabling the option to "Require review from Code Owners" in Github.
 ![screenshot of github settings](https://help.github.com/assets/images/help/repository/PR-review-required-code-owner.png)
 
 # Open Questions
-
 
 # Implementation
 
