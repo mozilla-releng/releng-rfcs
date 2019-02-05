@@ -4,33 +4,54 @@
 
 # Summary
 
-* Update wiki.mozilla.org to describe a summary of the Releng team, links to more-detailed docs
-* Remove [`moz-releng-docs.readthedocs.io`](https://moz-releng-docs.readthedocs.io/en/latest/) from [`mozilla/build-relengdocs`](https://github.com/mozilla/build-relengdocs)
-* Create a new repository similar to [`taskcluster-docs`](https://github.com/taskcluster/taskcluster-docs). Move information from releng.readthedocs.io to here
+When adding new documentation:
+* If it's for an in-tree project:
+    1. Add to [in-tree docs](https://firefox-source-docs.mozilla.org/taskcluster/taskcluster/release-promotion.html)
+    2. Add a link to the in-tree docs in [`mozilla/build-relengdocs`](https://github.com/mozilla/build-relengdocs) 
+* Otherwise:
+    1. Add to [`mozilla/build-relengdocs`](https://github.com/mozilla/build-relengdocs)
+    
+When looking for documentation for an existing project:
+1. Go to [`mozilla/build-relengdocs`](https://github.com/mozilla/build-relengdocs)
+2. If it links to in-tree docs, follow the link
+
+As part of this RFC, we'll coalesce existing documentation into the in-tree and `mozilla/build-relengdocs` docs so
+they match the decision tree above.
+
+Also, update wiki.mozilla.org to describe a summary of the Releng team and link to `mozilla/build-relengdocs`
 
 ## Motivation
 
-We need a place to house docs that meets the following requirements:
+This RFC aims to directly answer the question "where should I put my docs for <x>" or "where are the existing docs 
+for <y>".
 
+Additionally, this RFC tries to balance the benefit of having centralized documentation with the ability to have docs
+on the same platform as the project they're documenting.
+
+Requirements for documentation platforms:
 * Smaller changes (e.g.: typo fixes) are possible without waiting for review
 * Larger changes can be reviewed with a nice diff UI (GitHub's does this nicely)
 * We can view history of docs
 * The published docs are easily accessible (e.g.: $something.readthedocs.io)
-* `moz-releng-docs.readthedocs.io` hasn't been updated for a few years, if we want to change the location of our docs, we wouldn't be harming our existing workflow too harshly
+* Process of updating docs shouldn't be too heavy: making it tough to edit docs may increase the chances that docs will become out-of-date
 
 # Details
 
-Follow the approach laid out in [`taskcluster-docs`](https://github.com/taskcluster/taskcluster-docs). Deploy these docs to a `readthedocs` site or equivalent.
+Have two platforms for documentation: [in-tree docs](https://firefox-source-docs.mozilla.org/taskcluster/taskcluster/release-promotion.html)
+and [`mozilla/build-relengdocs`](https://github.com/mozilla/build-relengdocs).
+
+* Add links from `mozilla/build-relengdocs` for each project documented in in-tree docs
+* Comb through `mozilla/build-relengdocs` and remove obsolete documentation
+* Add ability to write docs in `mozilla/build-relengdocs` in markdown
+    * Motivation: these docs are on Github and using the Github workflow, and markdown is the common markup language on the platform
+* Move [releaseduty docs](https://github.com/mozilla-releng/releasewarrior-2.0/tree/master/docs) to `mozilla/build-relengdocs`
+* Leave releasewarrior documentation, since it's deprecated. Once the last consumer (Thunderbird) moves to ship-it v2,
+the releasewarrior docs can be removed.
 
 # Open Questions
 
-* Instead, should we continue using `mozilla/build-relengdocs`?
-* Should we have releng-desktop.readthedocs.io and releng-mobile.readthedocs.io?
-    * Should we have two separate docs sites, but tweak the above names?
-    * Should we have all releng docs shared in a single site?
-* How should we handle the [in-tree docs](https://firefox-source-docs.mozilla.org/taskcluster/taskcluster/release-promotion.html)
-    * Move them to our new docs repository? Keep the in-tree docs, but have define how to decide whether new docs go in-tree or in-new-repository?
-* Should we handle [`warrior-docs`](https://github.com/mozilla-releng/releasewarrior-2.0/tree/master/docs) as part of this RFC, or wait until Ship-it v2 to migrate into that?
+* Are we happy with being able to use markdown for `build-relengdocs`?
+    * Should we convert existing `.rst` docs in `build-relengdocs` to markdown?
 
 # Implementation
 
