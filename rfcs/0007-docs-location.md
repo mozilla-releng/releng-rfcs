@@ -22,8 +22,8 @@ Also, update wiki.mozilla.org to describe a summary of the Releng team and link 
 
 ## Motivation
 
-This RFC aims to directly answer the question "where should I put my docs for <x>" or "where are the existing docs 
-for <y>".
+This RFC aims to directly answer the question "where should I put my docs for `$productA`" or "where are the existing docs 
+for `$productB`".
 
 Additionally, this RFC tries to balance the benefit of having centralized documentation with the ability to have docs
 on the same platform as the project they're documenting.
@@ -44,9 +44,9 @@ and [`mozilla/build-relengdocs`](https://github.com/mozilla/build-relengdocs).
 * Comb through `mozilla/build-relengdocs` and remove obsolete documentation
 * Add ability to write docs in `mozilla/build-relengdocs` in markdown
     * Motivation: these docs are on Github and using the Github workflow, and markdown is the common markup language on the platform
-* Move [releaseduty docs](https://github.com/mozilla-releng/releasewarrior-2.0/tree/master/docs) to `mozilla/build-relengdocs`
-* Leave releasewarrior documentation, since it's deprecated. Once the last consumer (Thunderbird) moves to ship-it v2,
-the releasewarrior docs can be removed.
+* Move releaseduty docs ([in here](https://github.com/mozilla-releng/releasewarrior-2.0/tree/master/docs)) to `mozilla/build-relengdocs`
+* Leave releasewarrior documentation ([also in here]((https://github.com/mozilla-releng/releasewarrior-2.0/tree/master/docs))),
+since it's deprecated. Once the last consumer (Thunderbird) moves to ship-it v2, the releasewarrior docs can be removed.
 
 # Open Questions
 
