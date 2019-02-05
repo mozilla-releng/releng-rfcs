@@ -12,7 +12,6 @@ repositories.
 
 Most of the repositories in https://hg.mozilla.org/build are obsolete,
 many being buildbot related, and most of the rest having moved elsewhere.
-This makes 
 Additionally, the name "build" is more closely associated with the build team at Mozilla now.
 
 The new taskcluster instance that ci-admin/ci-config are intended to manage has
