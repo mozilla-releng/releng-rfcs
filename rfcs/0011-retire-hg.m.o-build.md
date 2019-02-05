@@ -31,7 +31,7 @@ The following repositories are still in use, but don't have a obvious home. How 
 |Repository|Description|Status|
 |----------|-----------|------|
 |braindump|Random releng scripts|Still in use|
-|mozharness|Used for vcs syncing|? Move to https://hg.mozilla.org/hgcustom ?|
+|mozharness|Used for vcs syncing|Move to github|
 |tools|Signing Server|Deprecated, Migrating to autograph|
 |nagios-tools|Bouncer checkes|on buildbot-master01|
 |relabs-puppet| |????|
@@ -50,7 +50,6 @@ The following repositories are obsolete and will remain where they are.
 |cloud-tools| |Moved to [githhub](https://github.com/mozilla-releng/build-cloud-tools)||
 |compare-locales| |Moved to https://hg.mozilla.org/l10n/compare-locales/|
 |mozpool|Part of buildbot|Obsolete|
-|nagios-tools| |????|
 |opsi-package-sources| |Obsolete|
 |partner-repacks| |Moved to [github](https://github.com/mozilla-partners)|
 |preproduction|Part of buildbot|Obsolete|
