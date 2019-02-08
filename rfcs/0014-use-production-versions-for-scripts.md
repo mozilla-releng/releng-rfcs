@@ -17,6 +17,8 @@ This will also allow us to convey intention in versions better (patches, depreca
 
 For all of our releng packages that we use in production, bump their versions to `1.0.0` (for those that aren't >= `1.0.0` already).
 Follow [semver](https://semver.org/).
+Importantly, this means that a backwards-incompatible change to _any_ public-facing functionality (e.g.: *script config 
+or task payload structure) must be followed by a major version bump.
 
 # Open Questions
 
