@@ -73,6 +73,7 @@ The following repositories are obsolete and will remain where they are.
 
 # Implementation
 
+* [Bug 1527721](https://bugzilla.mozilla.org/show_bug.cgi?id=1527721): Retire https://hg.mozilla.org/build
 * [Bug 1525368](https://bugzilla.mozilla.org/show_bug.cgi?id=1525368): Please move `/build/ci-{ci-configuration,ci-admin}` to `/ci/ci-{ci-configuration,ci-admin}`.
 
 <once the RFC is decided, these links will provide readers a way to track the
