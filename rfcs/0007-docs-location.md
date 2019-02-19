@@ -35,8 +35,8 @@ When deciding where to add new documentation, the following information can be h
 * Are we happy with being able to use markdown for `build-relengdocs`?
     * Should we convert existing `.rst` docs in `build-relengdocs` to markdown?
 * Should we move all out-of-tree docs to be under a single domain? We could have our 
-top-level `releng.mozilla.org`, plus our projects underneath it: `scriptworker.mozilla.org`, 
-`mozapkpublisher.mozilla.org`, etc
+top-level `releng.mozilla.org`, plus our projects underneath it: `scriptworker.releng.mozilla.org`, 
+`mozapkpublisher.releng.mozilla.org`, etc
 
 # Implementation
 
