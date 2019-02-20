@@ -23,8 +23,10 @@ Additionally, there's some minor fragmentation and documentation accessibility t
 * Update https://wiki.mozilla.org/Main_Page - move technical information to `mozilla/build-relengdocs`
     * Note: leave releasewarrior documentation ([also in here]((https://github.com/mozilla-releng/releasewarrior-2.0/tree/master/docs))),
 since it's deprecated. Once the last consumer (Thunderbird) moves to ship-it v2, these docs can be removed.
-* Add ability to write docs in `mozilla/build-relengdocs` in markdown
-    * Motivation: these docs are on Github and using the Github workflow, and markdown is the common markup language on the platform 
+* Add ability to write docs in `mozilla/build-relengdocs` in markdown (while still allowing `.rst`)
+    * Motivation: these docs are on Github and using the Github workflow, and markdown is the common markup language on the platform.
+    additionally, [`scriptworker` docs](https://github.com/mozilla-releng/scriptworker/tree/master/docs) are already a combination of both
+    `.rst` and `.md`
 
 When deciding where to add new documentation, the following information can be helpful:
 * The documentation target project's location - if the project is in-tree, perhaps the docs should be as well
@@ -32,8 +34,6 @@ When deciding where to add new documentation, the following information can be h
 
 # Open Questions
 
-* Are we happy with being able to use markdown for `build-relengdocs`?
-    * Should we convert existing `.rst` docs in `build-relengdocs` to markdown?
 * Should we move all out-of-tree docs to be under a single domain? We could have our 
 top-level `releng.mozilla.org`, plus our projects underneath it: `scriptworker.releng.mozilla.org`, 
 `mozapkpublisher.releng.mozilla.org`, etc
