@@ -25,20 +25,22 @@ We will find off-the-shelf package-caching software (one for Maven/Gradle, one f
     * Requiring hashing dependencies will be a follow-up RFC (`pip --require-hashes`, [`gradlew-witness`](https://github.com/signalapp/gradle-witness))
 
 This package-caching proxy software should be tested against these requirements.
-Once we're satisfied with its stability, we should gradually roll it out, one product at a time.
+Once we're satisfied with its stability, we should gradually roll it out, starting with `reference-browser`, scaling to
+all of mobile, then increasing scope to the rest of releng's products.
 We will have two types of caching instances: one for untrusted builds (e.g.: staging, PRs) and another for trusted builds (e.g.: releases) 
 
-We discussed using TC caches in our [earlier discussion](https://github.com/mozilla-releng/releng-rfcs/issues/4) and decided that it should be investigated in follow-up actions. It would be applied on top of the  caching proxy.
+Release Operations will create the instance, but Release Engineering will set up the proxying software and maintain it.
+
+We discussed using TC caches in our [earlier discussion](https://github.com/mozilla-releng/releng-rfcs/issues/4) and 
+decided that it should be investigated in follow-up actions. It would be applied on top of the  caching proxy.
 
 # Open Questions
 
-* Who should set up and maintain this machine?
-    * Proposal: RelOps creates instance, RelEng set up software and maintain
-* I'm assuming [Cross-region caches](https://github.com/mozilla-releng/releng-rfcs/issues/4#issuecomment-452494805) means that there's a cache in each region. How should we handle propagating updates to the `$n` servers we'll have running? Leave to RelOps?
-    * Will we want builds in region A use the caching proxy in region A? How do we want to set that up (since we can't hard-code package repositories in project build config in this case)?
-* How should downtime be handled? 
-    * Have two caching servers per region? Or:
-    * Have projects depend on servers in multiple regions?
+* How should we handle propagating software updates to each proxy caching server we have? Can puppet handle running
+schema migrations between versions?
+* With a "Taskcluster Proxy":
+    * Is there an existing example in which tasks in a region are proxied to services in the same region?
+    * Is there an existing example in which fallback servers are used if the "region-local" server is down?
 
 # Implementation
 
