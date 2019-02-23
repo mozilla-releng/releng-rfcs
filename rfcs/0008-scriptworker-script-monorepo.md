@@ -32,7 +32,6 @@ We are still able to make exceptions for behavior in \*scripts when needed. For 
 
 # Details
 
-## Proposal 1
 We create a github repo, `mozilla-releng/scriptworker-scripts`. We move the code from `scriptworker.client` into a `scriptworker-client` subdirectory, with its own `setup.py`. Tests will go under each subdirectly, e.g. `scriptworker-client/tests/` or `signingscript/tests`. We can move each production-ready, releng-maintained \*script into the monorepo over time.
 
 Each \*script will have its own `setup.py`.
@@ -43,53 +42,11 @@ Any change in shared behavior should span all \*scripts as applicable.
 
 We can do things like pyup dependency pinning across the repo like we do with puppet.
 
-We need to have ways of excluding or special-casing \*scripts. `balrogscript` is py2; the upcoming `applescript` will be targeted towards running on mac hosts instead of deployed through kubernetes.
+We need to have ways of excluding or special-casing \*scripts. `balrogscript` is py2; the upcoming `iscript` will be targeted towards running on mac hosts instead of deployed through kubernetes.
 
-Pluses:
-
-- the \*scripts have a lot in common, and will behave the same.
-- we can potentially create this monorepo sooner, and adjust behavior as we nixify each \*script and deploy to GCP instead of through puppet
-
-Concerns:
-
-- we'll have shared code+automation needs between release-services and \*scripts, e.g. papertrail logging and nix support.
-- we may end up moving the \*scripts a second time if it makes sense to share a repo with release-services in the future.
-
-## Proposal 2
-We gradually begin moving our \*scripts into the [release-services](https://github.com/mozilla/release-services) repo, as we nixify and prepare each one for deployment into GCP.
-
-Each \*script will still have its own `setup.py` and its own `tests/` subdirectory.
-
-Any change in shared behavior should still span all \*scripts as applicable.
-
-We need to adjust the release-services taskgraph and deployment story to also support \*script deployment processes and cadences. Most likely we need a way to easily release a subset of projects inside the repo, and exclude projects from the current services release cadence.
-
-Most likely our pinning will happen through nix.
-
-We need to have ways of excluding or special-casing \*scripts. `balrogscript` is py2; the upcoming `applescript` will be targeted towards running on mac hosts instead of deployed through kubernetes.
-
-Pluses:
-
-- we can share code and automation between release-services and \*scripts, which will look more and more similar when we move to GCP
-- one place to make improvements across all of our microservices
-- a larger pool of people familiar with each workflow. `bus_factor++`
-
-Concerns:
-- we probably don't want to move the \*scripts in until they're ready for nix+docker+GCP, making this a longer term project
-- we'll need to adjust the release-services shared code, automation, and cadences to allow for similar-but-different \*script code+automation+cadence needs.
-- the `please` tool has some rough edges, which we'll want to address
+We should version each module or script like we do currently: semver. Libraries (e.g., scriptworker-client) will bump major versions every time they make a non-backwards-compatible change. The \*scripts will bump their major versions when they make a task- or puppet- (runtime- or deployment-) backwards-incompatible change.
 
 # Open Questions
-
-We need a way to handle applescript and balrogscript differently from the rest of the \*scripts.
-
-Do we call it mozilla-releng/scriptworker-scripts ?
-
-Specific details about directory layouts, tox.ini per subdirectory or top level?, pyup pinning standards? nix?, code coverage service?, but I imagine we will decide on something good, and have the capability of changing it in the future without having to touch 10+ repos for consistency.
-
-Do we go with option 1 or 2? (\*scripts living with \*services or no?)
-
-Versioning and tagging rules. Does Nix make this obsolete?
 
 # Implementation
 
