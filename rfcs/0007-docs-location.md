@@ -35,10 +35,11 @@ When deciding where to add new documentation, the following information can be h
 # Open Questions
 
 * Should we move all out-of-tree docs to be under a single domain? We could have our 
-top-level `releng.mozilla.org`, plus our projects underneath it: `scriptworker.releng.mozilla.org`, 
-`mozapkpublisher.releng.mozilla.org`, etc
+top-level `docs.mozilla-releng.net`, plus our projects underneath it: `scriptworker.docs.mozilla-releng.net`, 
+`mozapkpublisher.docs.mozilla-releng.net`, etc
+    * My personal preference is that this won't add much value to the alternative (leaving our other projects under 
+    `readthedocs.io` or other sites), since we'll already be directly linking from `mozilla/build-relengdocs`.
+    The primary benefit that having a single domain will do is avoid dead-link issues if `readthedocs` (or other docs-hosting
+    service that we use) closes down.
 
 # Implementation
-
-
-
