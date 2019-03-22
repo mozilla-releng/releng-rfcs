@@ -50,3 +50,4 @@ We should version each module or script like we do currently: semver. Libraries 
 
 # Implementation
 
+I'm playing with an experimental monorepo at [escapewindow/scriptworker-scripts](https://github.com/escapewindow/scriptworker-scripts). We can go with this, make adjustments, or completely revisit, depending on what people think.
