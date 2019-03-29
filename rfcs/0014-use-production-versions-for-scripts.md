@@ -23,3 +23,5 @@ or task payload structure) must be followed by a major version bump.
 # Open Questions
 
 # Implementation
+
+* [Tracking bug](https://github.com/mozilla-releng/releng-rfcs/issues/19)
