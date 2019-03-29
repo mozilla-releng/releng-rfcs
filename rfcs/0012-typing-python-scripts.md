@@ -5,26 +5,31 @@
 # Summary
 
 [Typing hinting is in the Python standard library as of Python 3.5](https://docs.python.org/3/library/typing.html).
-We should organically add type hints to functions and data types that would benefit most, starting within our `*scripts` and `scriptworker`.
+We should allow type hints to be allowed organically to functions and data types. Additionally, `mypy` will be set up
+within `scriptworker` and its `*scripts`.
+Note that adding type hints for all existing code (or enforcing it for new code) is **not** part of this RFC. Instead,
+this is purely meant to allow type hints to be used and supported where they're most valuable, but code that doesn't
+benefit from hinting can be left un-hinted.
 
 ## Motivation
 
 Typings have a couple benefits, such as:
 * Easing refactoring, since it's easier to see what values are being passed around
 * Improved IDE completion
+* Fragile code can be significantly more stable when supported by type hints
 
 # Details
 
-Just as if introducing Typescript to a Javascript codebase (or Kotlin to Java), we can slowly add typings on a PR basis.
-Typed functions interact properly with untyped functions, so refactoring the entire codebase at once isn't necessary.
+This RFC does not recommend fully type-hinting our codebases. This is purely about supporting piece-by-piece additions
+of type hints.
 
-[PEP 484 has a section on `*args` and `**kwargs`](https://www.python.org/dev/peps/pep-0484/#arbitrary-argument-lists-and-default-argument-values).
+`mypy` will be added to `scriptworker` and the `*scripts` and will be invoked on-PR, and will block merges if the
+static analysis fails.
 
-Note: typings are ignored in production.
+If a PR adds typing that triggers faults in `mypy`, we can simply remove those type hints until the tooling improves.
 
-# Open Questions
-
-* Should we using tooling such as `mypy` in CI to statically analyze our typings?
-    * Suggestion: perhaps we could add it to CI, but not let it fail the build? Watch this closely, and re-visit whether it's useful in a month or two? 
+# Open Questions 
 
 # Implementation
+
+* [Tracking bug](https://github.com/mozilla-releng/releng-rfcs/issues/28)
