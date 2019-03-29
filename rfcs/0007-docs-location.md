@@ -28,18 +28,10 @@ since it's deprecated. Once the last consumer (Thunderbird) moves to ship-it v2,
     additionally, [`scriptworker` docs](https://github.com/mozilla-releng/scriptworker/tree/master/docs) are already a combination of both
     `.rst` and `.md`
 
-When deciding where to add new documentation, the following information can be helpful:
-* The documentation target project's location - if the project is in-tree, perhaps the docs should be as well
-* Do docs for a related project/workflow already exist? If so, perhaps the new docs should be close by
+Additionally, when adding new documentation, use the following tips to decide where they should be placed: 
+* Is the target project for the documentation in-tree? If so, perhaps the docs should be in-tree as well
+* Do docs for a related project/workflow already exist? If so, perhaps the new docs should be written in the same location
 
 # Open Questions
-
-* Should we move all out-of-tree docs to be under a single domain? We could have our 
-top-level `docs.mozilla-releng.net`, plus our projects underneath it: `scriptworker.docs.mozilla-releng.net`, 
-`mozapkpublisher.docs.mozilla-releng.net`, etc
-    * My personal preference is that this won't add much value to the alternative (leaving our other projects under 
-    `readthedocs.io` or other sites), since we'll already be directly linking from `mozilla/build-relengdocs`.
-    The primary benefit that having a single domain will do is avoid dead-link issues if `readthedocs` (or other docs-hosting
-    service that we use) closes down.
 
 # Implementation
