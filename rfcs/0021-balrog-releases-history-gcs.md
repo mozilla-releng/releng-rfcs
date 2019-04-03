@@ -1,5 +1,5 @@
-# RFC <number> - Move Balrog's releases_history table to Google Cloud Storage
-* Comments: [#<number>](https://api.github.com/repos/mozilla-releng/releng-rfcs/issues/<number>)
+# RFC 21 - Move Balrog's releases_history table to Google Cloud Storage
+* Comments: [#21](https://api.github.com/repos/mozilla-releng/releng-rfcs/issues/21)
 * Proposed by: @mozbhearsum
 
 # Summary
