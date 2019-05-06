@@ -47,28 +47,28 @@ The simplest way to understand the proposed changes is to look at the flow of da
                           +---------+
 ```
 
-With the proposed changes, only writes go through the admin backend, and are ultimately handled by the Agent. Anything wishing to do reads, does so directly with GCS:
+With the proposed changes, only writes go through the admin backend. Anything wishing to do reads, does so directly with GCS:
 ```
 +---------------+
 |               |
-|    Balrog     +----+                         Reads and Writes
-| Scriptworkers |    | Updates                 Release History to
-|               |    | Releases    +---------+ a Temporary Table +---------+
-+---------------+    +------------>+         +------------------>+         |
-                     +------------>+  Admin  |                   |  MySQL  |
-+---------------+    |             |         +<------------------+         |
-|               |    |             +----+----+                   +---------+
+|    Balrog     +----+                        
+| Scriptworkers |    | Updates               
+|               |    | Releases    +---------+
++---------------+    +------------>+         |
+                     +------------>+  Admin  |
++---------------+    |             |         |
+|               |    |             +----+----+
 |   Frontend    +----+                  |
 |               |                       |
-+-------+-------+                       | Reads Release History
-        ^                               | from Temporary Table
++-------+-------+                       |                      
+        ^                               |                     
         | Reads Release History         |
-        |                               v
-   +----+----+                     +----+----+
-   |         |                     |         |
-   |   GCS   +<--------------------+  Agent  |
-   |         | Writes Release      |         |
-   +---------+ History             +---------+
+        |                               |
+   +----+----+                          |     
+   |         |                          |     
+   |   GCS   +<--------------------------     
+   |         | Writes Release                 
+   +---------+ History                            
 
 ```
 
@@ -89,8 +89,7 @@ Local development environments will *not* have their own buckets by default (mor
 
 ## Balrog Changes Needed
 
-* Replace writes to `releases_history` table with writes to a temporary table.
-* Enchance the Agent to monitor for these rows and write them to GCS.
+* Replace writes to `releases_history` table with writes to GCS.
 * Numerous changes to the Frontend:
     * Query GCS when Release history is requested instead of admin. The appropriate bucket can be queried by prefix to find all versions of the Release.
     * Change the way we do reverts. Instead of calling a special admin endpoint that copies data from `releases_history` to `releases`, we'll simply have the Frontend update a Release with the old data (or schedule a change).
@@ -109,8 +108,6 @@ Local development environments will *not* have their own buckets by default (mor
 
 # Open Questions
 
-* Will access to Release History actually be faster? Need to compare requests to the admin app vs. requests to GCS to verify.
-
 # Implementation
 
-TODO
+https://github.com/mozilla/balrog/pull/910
