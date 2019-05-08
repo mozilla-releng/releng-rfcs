@@ -10,10 +10,7 @@ Use standard and well known tools & processes for development, testing, building
     * For Python, this means `pip-compile-multi`, `tox`, and Pyup.io
     * For Javascript, this means `yarn`, `neutrino`, `jest`, and Greenkeeper.io
 * Use Taskcluster to run tests and builds in CI
-* Maintain `production`, `stage`, and `dev` environments per application
-    * `production`, which may be automatically deployed when a new Release is created, or deployed to manually
-    * `staging`, which will automatically deploy on pushes to the `master` branch of a repo
-    * `dev`, which will automatically deploy on pushes to the `dev` branch of a repo
+* Maintain appropriate deployed environments that allow testing to be done before pushing new code to production.
 
 ## Motivation
 
@@ -71,9 +68,9 @@ RUN cd /src && /venv/bin/pip install -r requirements-dev.txt
 
 Javascript projects will be built with `yarn build`.
 
-## Deployment
+## Environments
 
-Every application will have a `production`, `stage`, and `dev` environment.
+Every application will have a `production` environment, as well as appropriate, deployed non-production environments to ensure that code can be effectively tested before pushing to production. Unless you have a compelling reason to do something different, this means a `stage` environment.
 
 ### Production
 
@@ -83,29 +80,19 @@ Python projects will push both a `${project}_production` and `${project}_${hash}
 
 Javascript projects will publish a built version of the app as a Taskcluster artifact. If the project autodeploys to production, it will also publish to S3. If it manually deploys, a bug will need to be filed that references the built app.
 
-### Stage
+### Stage & Development
 
 Stage builds will happen in response to push events on the `master` branch. Once a build is completed, it will automatically deploy to the `stage` environment. For Python projects, this means pushing a `${project}_stage` tag to Dockerhub. For Javascript projects, this means publishing to S3.
 
-The stage environment should be used as a final testing ground before pushing to production. Code typically bakes here for ~24h before moving to production.
+As much as possible, development environments should be brought up on an ad-hoc basis. In many cases a development environment running on your own laptop should be sufficient. Running development environments on AWS or GCE instances is also acceptable.
 
-### Dev
-
-Dev builds will happen in response to push events on the `dev` branch. Once a build is completed, it will automatically deploy to the `dev` environment. For Python projects, this means pushing a `${project}_dev` tag to Dockerhub. For Javascript projects, this means publishing to S3.
-
-Anyone may force push to this branch to deploy their code. However, because we only have one dev environment and many developers, it should *not* be used it for any testing that can be completed with a local Docker container. This environment is typically reserved for testing that can only be accomplished in a deployed enviroment. Examples include:
-* Testing changes to Sentry or other CloudOps integrations
-* Testing changes that depend on services you cannot run locally (eg: hg.mozilla.org, Taskcluster)
+In some cases (most notably, scriptworkers that need routes to autograph or other external services), ad-hoc development environments are not realistic. In these cases, it is acceptable to deploy your own code to a stage environment.
 
 ## Dependencies between applications
 
-Any application that depends on another application *must* use the same environment. Eg: ship it stage must use balrog stage, it cannot use balrog dev.
+Any application that depends on another application should use the same environment. Eg: ship it stage must use balrog stage, it cannot use balrog production.
 
-Dependencies on external applications are a little more ambiguous, as not all external dependencies have a matching set of environments. Use your best judgement here. Eg: don't have production services depend on external staging services or vice versa.
-
-To meet this new standard we will need to change try & staging releases as follows:
-* Try releases will use Balrog & Ship It dev
-* Project branch releases (eg: maple) will use Balrog & Ship It stage
+Dependencies on external applications are a little more ambiguous, as not all external dependencies have a matching set of environments. Use your best judgement here. Eg: don't have production services depend on external staging services if you can help it (or vice versa).
 
 ## Notes on `mozilla-releng/services`
 
