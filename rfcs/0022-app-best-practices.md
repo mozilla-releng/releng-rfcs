@@ -22,7 +22,7 @@ The below are best practices. It is strongly recommended that you stick to them,
 
 ## Development
 
-Docker and Docker Compose should be used to build, run, and test applications locally. This ensures that all developers, CI, and deployed environments are as identical as is reasonable. Using Docker means that we will explicitly not be pinning system level packages anymore. This is an explicit trade-off that we are making -- the cost/complexity of doing so is not worth the small benefits we get from it.
+Docker and Docker Compose should be used to build, run, and test applications locally. This ensures that all developers, CI, and deployed environments are as identical as is reasonable. Using Docker means that we will explicitly not be pinning system level packages. This is an explicit trade-off that we are making -- the cost/complexity of doing so is not worth the small benefits we get from it.
 
 Python applications should use `python:3` as their base image. Javascript applications should use `node:current` as their base image.
 
@@ -35,7 +35,7 @@ Python projects should specify their dependencies in three files (as is standard
 
 The `pip-compile-multi` documentation has [additional details and reasoning](https://github.com/peterdemin/pip-compile-multi#managing-dependency-versions-in-multiple-environments) behind this split for requirements files.
 
-When any of these files change, `pip-compile-multi` will be used to generate the full list of pinned dependencies. Pyup.io will be used to keep them up-to-date. It is recommended that Pyup be configured to use batch mode (instead of PR-per-dependency) to avoid issues where multiple dependencies need to be updated at the same time.
+When any of these files change, `pip-compile-multi` will be used to generate the full list of pinned dependencies. Pyup.io will be used to keep the generated files up-to-date. It is recommended that Pyup be configured to use batch mode (instead of PR-per-dependency) to avoid issues where multiple dependencies need to be updated at the same time.
 
 Javascript projects will specify their dependencies in `package.json`. As is the usual for Javascript projects, direct dependencies will be listed in `dependencies` and direct test and local development dependencies will be listed in `devDependencies`. When either of this lists change, `yarn lock` will be used to generate the full list of pinned dependencies. Greenkeeper.io will be used to keep them up-to-date.
 
@@ -43,7 +43,7 @@ Javascript projects will specify their dependencies in `package.json`. As is the
 
 ### Unit Tests
 
-All testing should be done within Docker container. You may also run tests directly on your host machine, but we should not spend time optimizing or fixing failures that don't occur in Docker.
+Docker should be the only supported environment for running tests. You may also run tests directly on your host machine, but we should not spend time optimizing or fixing failures that don't occur in Docker.
 
 Python projects should wrap Docker with `tox` while Javascript projects should wrap Docker with `yarn`. These wrappers will build the necessary Docker image, and then run the tests within it. This is to maintain a familiar, well-known entrypoint for running tests, while ensuring they run in a consistent way for all developers.
 
@@ -51,7 +51,7 @@ All CI should be done with Taskcluster. CI tests should be run in images built f
 
 ## Builds
 
-Python projects should be built Docker. Production and local development have typically slightly different requirements when it comes to their Docker images. To accommodate this while minimizing the possibility of difference between them, we will use a multistage Dockerfile to allow them to live nearby. For example, here is a Dockerfile that can build both the production and local development versions of a simple Python project:
+Python projects should be built with Docker. Production and local development have typically slightly different requirements when it comes to their Docker images. To accommodate this while minimizing the possibility of difference between them, we will use a multistage Dockerfile to allow them to live nearby. For example, here is a Dockerfile that can build both the production and local development versions of a simple Python project:
 ```
 ARG PYTHON_VERSION=3.7
 FROM python:${PYTHON_VERSION}-slim as production
