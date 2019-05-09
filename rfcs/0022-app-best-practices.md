@@ -51,24 +51,7 @@ All CI should be done with Taskcluster. CI tests should be run in images built f
 
 ## Builds
 
-Python projects should be built with Docker. Production and local development have typically slightly different requirements when it comes to their Docker images. To accommodate this while minimizing the possibility of difference between them, we will use a multistage Dockerfile to allow them to live nearby. For example, here is a Dockerfile that can build both the production and local development versions of a simple Python project:
-```
-ARG PYTHON_VERSION=3.7
-FROM python:${PYTHON_VERSION}-slim as production
-
-RUN apt-get update && apt-get upgrade -y
-
-RUN python -m venv /venv
-COPY ./ ./src
-RUN cd /src && /venv/bin/pip install -r requirements.txt
-
-
-FROM python:${PYTHON_VERSION} as testing
-
-COPY --from=production /venv /venv
-COPY ./ ./src
-RUN cd /src && /venv/bin/pip install -r requirements-dev.txt
-```
+Python projects should be built with Docker. You will need at least one Dockerfile (for `production`), but it's not uncommon to require a separate one for local development due to different system requirements, or needing to include extra data in the image.
 
 Javascript projects will be built with `yarn build`.
 
