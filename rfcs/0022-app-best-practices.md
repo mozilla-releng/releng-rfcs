@@ -14,7 +14,16 @@ Use standard and well known tools & processes for development, testing, building
 
 ## Motivation
 
-Release Engineering has evolved a large set of applications over a number of years. Each application has created its own way of running tests, doing local development, building, managing dependencies, etc. Some applications also use tools that are not well known (eg: Nix, `lineman`) or custom solutions to problems that could be solved by standard tools (eg: Balrog's `run-tests.sh`). This inconsistency and use of unfamiliar tools make it more difficult to ramp up on new projects, switch between projects, and generally reduce our development velocity. Standardizing on a set of well known tools & processes will allow us to move faster and onboard new people (both employees and volunteers) more quickly.
+Release Engineering has evolved a large set of applications over a number of years. Each application has created its own way of running tests, doing local development, building, managing dependencies, etc. Some applications also use tools that are not well known (eg: Nix, `lineman`) or custom solutions to problems that could be solved by standard tools (eg: Balrog's `run-tests.sh`). This inconsistency and use of unfamiliar tools make it more difficult to ramp up on new projects, switch between projects, and generally reduce our development velocity.
+
+When these best practices are followed, we should expect to spend less time on things such as:
+* Picking tools/libraries
+* Configuring CI
+* Talking through requirements with CloudOps
+* Doing day-to-day maintenance (dependency upgrades, deployments)
+* Ramping up on a project you haven't worked on before
+
+...and to spend more time on fixing bugs and working on new features.
 
 # Details
 
