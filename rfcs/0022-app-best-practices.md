@@ -63,7 +63,7 @@ Every application should have a `production` environment, as well as appropriate
 
 Production builds should happen in response to Github `release` events.
 
-Python projects should push both a `${project}_production` and `${project}_${hash}` tag to Dockerhub. If the project autodeploys to `production`, it should do in response to the `${project}_production` tag. If it manually deploys, a bug should need to be filed that references the `${project}_${hash}` tag.
+Python projects should either a `production` or `${hash}` tag to Dockerhub. If the project autodeploys to `production`, it should do in response to the `production` tag. If it manually deploys, a bug should need to be filed that references the `${hash}` tag.
 
 Javascript projects should publish a built version of the app as a Taskcluster artifact. If the project autodeploys to `production`, it should also publish to S3. If it manually deploys, a bug will need to be filed that references the built app.
 
