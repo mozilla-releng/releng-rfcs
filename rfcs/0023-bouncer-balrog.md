@@ -1,5 +1,5 @@
-# RFC <number> - Connect the download bouncer to Balrog
-* Comments: [#<number>](https://api.github.com/repos/mozilla-releng/releng-rfcs/issues/<number>)
+# RFC 23 - Connect the download bouncer to Balrog
+* Comments: [#23](https://api.github.com/repos/mozilla-releng/releng-rfcs/issues/23)
 * Proposed by: @srfraser
 
 ## Summary
