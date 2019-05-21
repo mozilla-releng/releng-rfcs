@@ -38,8 +38,9 @@ it will find:
 1. A query product of `firefox-latest-ssl` which the config says should be rewritten as `firefox` in the template.
 2. A query OS of `osx` which along with the product lets us look up the right template to use
 3. A `lang` which we can validate, if needed.
-4. The fields above let us find the latest version in the cache, and a template, such as `https://download-installer.cdn.mozilla.net/pub/{product}/releases/{version}/mac/{lang}/Firefox {version}.dmg`.
-5. We now have all the details to fill in the template.
+4. The fields above let us find the latest version in the cache, and a template, such as `/pub/{product}/releases/{version}/mac/{lang}/Firefox {version}.dmg`.
+5. The bouncer environment contains the base CDN url, such as `https://download-installer.cdn.mozilla.net`
+6. We now have all the details to fill in the template.
 
 At regular intervals and at startup, go-bouncer will query Balrog to discover up-to-date information.
 
@@ -64,11 +65,11 @@ Here is an _incomplete_ example of what a configuration file might look like.
     },
     "templates": {
         "default": {
-            "osx": "https://download-installer.cdn.mozilla.net/pub/{product}/releases/{version}/mac/{lang}/Firefox {version}.dmg",
-            "win64": "https://download-installer.cdn.mozilla.net/pub/{product}/releases/{version}/win64/{lang}/Firefox Setup {version}.exe"
+            "osx": "/pub/{product}/releases/{version}/mac/{lang}/Firefox {version}.dmg",
+            "win64": "/pub/{product}/releases/{version}/win64/{lang}/Firefox Setup {version}.exe"
         }
         "firefox-nightly-latest-l10n-ssl": {
-            "win64": "https://download-installer.cdn.mozilla.net/pub/{product}/nightly/latest-mozilla-central/firefox-{version}.{lang}.win64.installer.exe
+            "win64": "/pub/{product}/nightly/latest-mozilla-central/firefox-{version}.{lang}.win64.installer.exe
         }
 
     }
@@ -99,6 +100,18 @@ For every entry in the `product_to_rules` map
 
 Bouncer does not currently use any of the dated directories for nightlies, meaning this complicated option is not required. The 'latest' directory is sufficient and can be used in the templates.
 
+### Bouncer URLs for specific versions
+
+Bouncer handles redirection for older versions, by including this as a product in the URL. For example, a query to `http://download.mozilla.org/?product=firefox-65.0-complete&os=%OS_BOUNCER%&lang=%LOCALE%`
+
+Since there are no Balrog rules pointing to these versions, and Balrog itself relies on bouncer to find the locations, we need to convert these into templates.
+
+Thankfully, having a product of the form `firefox-65.0-complete` means we can easily extract the version instead of querying Balrog for it. We wouldn't be able to validate
+the list of locales, but we could use the same templates to fill in the locations. This does assume that the URLs follow a consistent pattern. If older ones do not, we may have to hard code them.
+
+Partials in products would also need to be accounted for, to translate queries such as `http://download.mozilla.org/?product=firefox-65.0-partial-63.0.1&os=win32&lang=en-US` into `http://download.cdn.mozilla.net/pub/firefox/releases/65.0/update/win32/en-US/firefox-63.0.1-65.0.partial.mar`
+
+This means that when looking up a product in the local cache, we first check to see if there's an exact match, and then check to see if there's a pattern match against a rule name.
 
 ## Open Questions
 
