@@ -101,3 +101,5 @@ Shared code in the `lib` directory may be duplicated to any projects that requir
 # Open Questions
 
 # Implementation
+
+Tracking bug: https://bugzilla.mozilla.org/show_bug.cgi?id=1553160
