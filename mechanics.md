@@ -8,7 +8,7 @@ At this stage, you are trying to identify a goal and potential solution. These a
 
 * a pretty specific goal: a user story ("Users can..."), dependency ("This will allow ..") or a completion condition ("All services .."); and
 * some vague idea of how this might be accomplished, or a few alternatives.
-  
+
 If already have this, feel free to skip to the [idea phase](#idea-phase)
 
 Otherwise, start by creating a Github Issue. Issues are good for solicitating help with:
@@ -16,7 +16,7 @@ Otherwise, start by creating a Github Issue. Issues are good for solicitating he
 1. confirming your thoughts are not based off missing context or knowledge
 2. forming those thoughts into an idea.
 
-After creating the issue, feel free to leave it open, iterate on it more, or ping others for input. 
+After creating the issue, feel free to leave it open, iterate on it more, or ping others for input.
 
 ## Idea phase
 
@@ -25,6 +25,8 @@ After creating the issue, feel free to leave it open, iterate on it more, or pin
 **Number of people involved**: Minimum required to make a proposal and expect the PR to be signed off. It's good to have domain experts or stakeholders involved.
 
 In general, the solution proposed in the next step should have an expectation of being signed off, though specific details may change. An open-ended discussion starting from the problem statements may be more productive, and allow for people to reach common ground earlier, than starting from a potentially controversial solution that hasn't been discussed beforehand. If the various stakeholders agree that a fully fleshed out proposal would be preferable, even before any consensus, this rule of thumb may be waived.
+
+This discussion can happen in the issue created in the identify phase, or on another platform. If the discussion happens on another platform, and if this idea proceeds to the next phase, it's a good idea to encapsulate that discussion in the issue or PR.
 
 **PR Label**: `Phase: Draft`
 
