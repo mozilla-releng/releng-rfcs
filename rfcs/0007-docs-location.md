@@ -35,3 +35,5 @@ Additionally, when adding new documentation, use the following tips to decide wh
 # Open Questions
 
 # Implementation
+
+* [Tracking bug](https://github.com/mozilla-releng/releng-rfcs/issues/26)
