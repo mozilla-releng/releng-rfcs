@@ -1,5 +1,5 @@
-# RFC <number> - Class Objects as Arguments
-* Comments: [#<number>](https://api.github.com/repos/mozilla-releng/releng-rfcs/issues/<number>)
+# RFC 0029 - Class Objects as Arguments
+* Comments: [#29](https://api.github.com/repos/mozilla-releng/releng-rfcs/issues/29)
 * Proposed by: @mitchhentges
 
 # Summary
