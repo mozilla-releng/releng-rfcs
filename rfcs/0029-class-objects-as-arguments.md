@@ -46,7 +46,7 @@ push_apk(                                           |       push_apk(
 **Benefits of using classes to represent intent:**
 * Expected parameters are more explicit and self-documenting - you don't need to depend on docs to tell you that 
 `credentials` is only needed when `contact_google_play=True`
-* Parameters that are related (like `credentials` and `service_account`) are grouped [note 1](#note-1-using-a-dictionary-instead-of-an-object-as-a-parameter)). This is especially
+* Parameters that are related (like `credentials` and `service_account`) are grouped ([there's a note on using a `dict` instead](#note-1-using-a-dictionary-instead-of-an-object-as-a-parameter)). This is especially
 useful when expressing intent, as in "I want to do `<x>`, and here's the associated configuration for doing `<x>`."
 * IDEs can use the class definition to provide Intellisense
 
