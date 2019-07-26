@@ -1,5 +1,5 @@
-# RFC <number> - Allow Release Management to provide secondary signoff for the Firefox Beta channel
-* Comments: [#<number>](https://api.github.com/repos/mozilla-releng/releng-rfcs/issues/<number>)
+# RFC 30 - Allow Release Management to provide secondary signoff for the Firefox Beta channel
+* Comments: [#30](https://api.github.com/repos/mozilla-releng/releng-rfcs/issues/30)
 * Proposed by: @mozbhearsum
 
 # Summary
