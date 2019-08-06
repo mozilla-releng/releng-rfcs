@@ -22,9 +22,4 @@ One risk that has been called out is that without RelEng forcibly in the loop, i
 
 # Implementation
 
-<once the RFC is decided, these links will provide readers a way to track the
-implementation through to completion>
-
-* <link to tracker bug, issue, etc.>
-* <...>
-
+Changes will be made to the Required Signoffs in production Balrog.
