@@ -46,8 +46,10 @@ We need to have ways of excluding or special-casing \*scripts. `balrogscript` is
 
 We should version each module or script like we do currently: semver. Libraries (e.g., scriptworker-client) will bump major versions every time they make a non-backwards-compatible change. The \*scripts will bump their major versions when they make a task- or puppet- (runtime- or deployment-) backwards-incompatible change.
 
+Initially, we will push docker releases via pushes to production branches. In the future, we will port scriptworker-scripts to taskgraph, and take advantages of the features it has (only build what changes; Chain of Trust verification; using artifacts and indexes from previously run tasks).
+
 # Open Questions
 
 # Implementation
 
-I'm playing with an experimental monorepo at [escapewindow/scriptworker-scripts](https://github.com/escapewindow/scriptworker-scripts). We can go with this, make adjustments, or completely revisit, depending on what people think.
+We have a monorepo at [mozilla-releng/scriptworker-scripts](https://github.com/mozilla-releng/scriptworker-scripts), already using Taskcluster for automation. The scripts are yet to be unified in terms of behavior, using `scriptworker_client`, using taskgraph, etc., but we will do that over time.
