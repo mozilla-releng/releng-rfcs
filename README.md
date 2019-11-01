@@ -13,3 +13,5 @@ Releng team planning
 **Why**: This repo serves as a place to coordinate design and architecture, so that everyone can participate and past discussions are accessible to everyone.
 
 **How**: See [mechanics](mechanics.md) for more details. heavily influenced and copied from [taskcluster-rfcs](https://github.com/taskcluster/taskcluster-rfcs)
+
+Similar to the taskcluster-rfc repo, RFCs are preferably for fleshing out details of a proposal that have already been discussed on some level and are expected to succeed. For ideas or problems that still need to reach a a core level of consensus in their broad strokes, a more open ended discussion (starting from the problem statements, then collaboratively reaching a solution) may be more productive.
