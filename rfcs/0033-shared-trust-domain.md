@@ -4,7 +4,7 @@
 
 # Summary
 
-Build and maintain a shared Trust Domain, Workers, and Scriptworkers on the Firefox CI cluster that any Mozilla project can use.
+Build and maintain a shared Trust Domain, Workers, and Scriptworkers on the Firefox CI cluster that any Mozilla project can use. (Browser products will remain in their existing - separate - trust domain.)
 
 ## Motivation
 
@@ -46,4 +46,3 @@ implementation through to completion>
 
 * <link to tracker bug, issue, etc.>
 * <...>
-
