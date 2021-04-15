@@ -21,7 +21,7 @@ We will create a new trust domain and workers that are generally available for M
     * These will be created under a new `mozilla-t` provisioner
 * New Scriptworker instances forsigning and mac-signing
 	* These will be created under the existing `scriptworker-k8s` and `scriptworker-prov-v1` provisioners
-	* Workers will be prefixed with `mozilla-1-`
+	* Workers will be prefixed with `mozilla-t-`
 
 Notably, we are only concerned with level 1 workers at this time, which means we can ignore things like scriptworkers that are only used when shipping. Level 3 workers will be dealt with at a later stage.
 
