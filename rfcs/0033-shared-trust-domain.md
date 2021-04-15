@@ -19,7 +19,7 @@ We will create a new trust domain and workers that are generally available for M
     * These will be created under a new `mozilla-1` provisioner
 * New Workers for tests on Linux (through developer provided Docker images), macOS 11.0, and Windows 10
     * These will be created under a new `mozilla-t` provisioner
-* New Scriptworkers instances forsigning and mac-signing
+* New Scriptworker instances forsigning and mac-signing
 	* These will be created under the existing `scriptworker-k8s` and `scriptworker-prov-v1` provisioners
 	* Workers will be prefixed with `mozilla-1-`
 
