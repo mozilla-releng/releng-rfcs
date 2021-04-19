@@ -52,7 +52,7 @@ ci-admin will need support adding for processing the new `projects-automanaged.y
 
 ## hg.mozilla.org
 
-We will a hook that prevents the account that will be pushing these changes from modifying files other than `projects-automanaged.yml`, to prevent any compromise of that system from making any changes to Firefox, Fenix, or other more high risk parts of ci-configuration.
+We will need a hook that prevents the account that will be pushing these changes from modifying files other than `projects-automanaged.yml`, to prevent any compromise of that system from making any changes to Firefox, Fenix, or other more high risk parts of ci-configuration. There is existing prior art on this sort of limitation, so this is mostly configuration, not development.
 
 ## taskcluster-github
 
@@ -73,4 +73,3 @@ implementation through to completion>
 
 * <link to tracker bug, issue, etc.>
 * <...>
-
