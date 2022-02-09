@@ -45,5 +45,10 @@ While this won't be enforced, the recommended location for this file will be
    point at our internal pypi instead. It's worth noting that any repo which installs taskgraph via
    `pip install path/to/taskgraph` (which appears to be all of them) already depend on pypi.
 
+2. We'll need to be cautious not to break hooks, since previously the version of taskgraph being
+   used was baked into the `.taskcluster.yml`. Since changes to this file invalidate hooks, an
+   update to taskgraph will no longer force us to re-generate them. I don't believe this will cause
+   any problems, but extra testing should be conducted here.
+
 
 [0]: https://pypi.org/project/taskcluster-taskgraph/
