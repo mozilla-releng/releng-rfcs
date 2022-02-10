@@ -39,6 +39,23 @@ E.g:
 While this won't be enforced, the recommended location for this file will be
 `taskcluster/requirements.txt`.
 
+## Testing Taskgraph Changes
+
+Previously testing changes to taskgraph within a consumer repo was easy. Just edit the repo to point
+at `taskgraph-try` and select whichever revision is necessary. This proposal will complicated the
+process a little bit.
+
+The new recommended way to test changes is to use `pip`'s built-in [VCS support][1]. For example,
+the following specifier could be used to test arbitrary taskgraph revisions:
+
+```
+taskcluster-taskgraph@hg+https://hg.mozilla.org/ci/taskgraph@ae7697ec7905216c7245bafb8a9475355ea00a76
+```
+
+This can be compiled with hashes by `pip-compile` or used as a specifier to `hashin`. The new
+process for testing against arbitrary taskgraph revisions will be documented in taskgraph's
+documentation.
+
 # Open Questions
 
 1. If a repository does not wish to have a dependency on pypi, we may need to provide a method to
@@ -52,3 +69,4 @@ While this won't be enforced, the recommended location for this file will be
 
 
 [0]: https://pypi.org/project/taskcluster-taskgraph/
+[1]: https://pip.pypa.io/en/latest/topics/vcs-support/
