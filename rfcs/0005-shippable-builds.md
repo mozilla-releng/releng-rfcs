@@ -39,9 +39,7 @@ There will be a second stage to this work that entails what we call "Nightly Pro
 
 # Implementation
 
-<once the RFC is decided, these links will provide readers a way to track the
-implementation through to completion>
 
-* <link to tracker bug, issue, etc.>
-* <...>
+* [bug 1452113 - implement shippable builds](https://bugzilla.mozilla.org/show_bug.cgi?id=1352113)
+* [bug 1614970 - implement shippable builds, phase 2](https://bugzilla.mozilla.org/show_bug.cgi?id=1614970)
 
