@@ -5,7 +5,7 @@
 
 ## Summary
 
-Approximately 3 years after filing [RelEng's first Jira ticket](https://mozilla-hub.atlassian.net/browse/RELENG-2) and 1000+ tickets later, the Release Engineering team is still wondering which issue tracker to use. This causes confusion regarding where to put daily engineering work. Everyone on the team agrees we need clarity on this.
+Approximately 3 years after filing [RelEng's first Jira ticket](https://mozilla-hub.atlassian.net/browse/RELENG-2) and 1000+ tickets later, the Release Engineering team is still wondering which issue tracker to use. This causes confusion regarding where to file engineering work. Everyone on the team agrees we need clarity on this.
 
 After reviewing the original intent, the team's current practice, and what leadership expects from us, we are going to decomission [RELENG](https://mozilla-hub.atlassian.net/browse/RELENG).
 
@@ -17,7 +17,7 @@ Like said above, RelEng started to use Jira 3 years ago. This was an immediate r
 
 ### What's changed since we made that decision?
 
-Since then, the team has evolved. New members have joined the team. Sometimes new members were old-guard Mozillians, sometimes they were new Mozillians. No matter the profile, it remains unclear where our daily work needs to be tracked. This results in a split-brain situation where some of knowledge is on Bugzilla, some is on Jira.
+Since then, the team has evolved. New members have joined the team. Sometimes new members were old-guard Mozillians, sometimes they were new Mozillians. No matter the profile, it remains unclear where our day-to-day work needs to be tracked. This results in a split-brain situation where some of knowledge is on Bugzilla, some is on Jira.
 
 Since then, the need for Bugzilla has come back. We cannot be entirely on Jira because any patch that lands on [mozilla-central](https://hg.mozilla.org/mozilla-central/) must have a Bugzilla bug number. Some teams, like the Android ones [moved their issue tracking back to Bugzilla](https://github.com/mozilla-mobile/android-components/issues/12751).
 
@@ -41,7 +41,7 @@ GitHub issues are another bug tracking system we use. It's another split-brain s
 
 #### Short-term planning is also a separate conversation
 
-In this RFC, we are willing to solve one problem: where should daily engineering work should be filed on? While the answer has an impact on the way RelEng tracks and plans short-term work, this is not the only parameter to take into account.
+Work that takes 2 weeks or more is going to be filed on Jira (see below). In this RFC, we are willing to solve one problem: where should engineering work should be filed on? While the answer has an impact on the way RelEng tracks and plans work that takes less than 2 weeks, this is not the only parameter to take into account.
 
 For context, the Release Engineering tried Scrum/Kanban planning on [RELENG](https://mozilla-hub.atlassian.net/browse/RELENG). We stopped about a year and a half ago. Therefore, if we want to adjust our current way of planning short-term, it's going to be a bigger conversation which will involve:
  * current habits,
@@ -53,12 +53,12 @@ As a result, this RFC won't be on short-term planning.
 
 ### Proposal
 
-#### Jira for high-level project planning
+#### Jira for bubbling up projects that take 2 weeks or more
 
-Mozilla has [a process](https://docs.google.com/document/d/1BA1v2xiDF1IoqbyfY3hWlXc_MRsI02hYs2rslmkK3gM/edit#) to define which projects are more important than others. In the case of RelEng's organization, this happens within the [FFXP](https://mozilla-hub.atlassian.net/browse/FFXP) project on Jira. It’s typically the job of a manager to create Jira's epics there. The content of these epics are centered around 2 main fields: a high level description of what we plan to do and "why now?".
+Mozilla has [a process](https://docs.google.com/document/d/1BA1v2xiDF1IoqbyfY3hWlXc_MRsI02hYs2rslmkK3gM/edit#) to define which projects are more important than others. In the case of RelEng's organization, this happens within the [FFXP](https://mozilla-hub.atlassian.net/browse/FFXP) project on Jira. These tickets are meant to explain to the management chain why our team should do this project now. It’s typically the job of a manager to create Jira's epics there for any work that takes 2 weeks or more. The content of these epics are centered around 2 main fields: a high level description of what we plan to do and "why now?".
 
 
-#### Bugzilla for daily engineering work and implementation details
+#### Bugzilla for engineering work and implementation details
 
 Being open is part of [Mozilla's identity](https://www.mozilla.org/en-US/about/manifesto/). Our Jira instance is not open. Therefore, it should not be the source of truth, especially regarding implementation details.
 
@@ -74,10 +74,13 @@ Mozilla doesn't have the same level of quality and support when it comes to Jira
 
 ### Consequences
 
-#### [RELENG](https://mozilla-hub.atlassian.net/browse/RELENG) will be decommissioned
+#### [RELENG](https://mozilla-hub.atlassian.net/browse/RELENG) will be archived
 
-Considering all of the above, which includes the original intent when we created [RELENG](https://mozilla-hub.atlassian.net/browse/RELENG), we shouldn't do daily engineering work on Jira anymore. Hence, [RELENG](https://mozilla-hub.atlassian.net/browse/RELENG) will be retired in favor of Bugzilla bugs under the [Release Engineering](https://bugzilla.mozilla.org/describecomponents.cgi?product=Release%20Engineering) product.
+Considering all of the above, which includes the original intent when we created [RELENG](https://mozilla-hub.atlassian.net/browse/RELENG), we shouldn't do engineering work on Jira anymore. Hence, [RELENG](https://mozilla-hub.atlassian.net/browse/RELENG) will be [archived](https://support.atlassian.com/jira-cloud-administration/docs/archive-a-project/) in favor of Bugzilla bugs under the [Release Engineering](https://bugzilla.mozilla.org/describecomponents.cgi?product=Release%20Engineering) product.
 
+#### We will import only the currently open Jira tickets
+
+With [RELENG](https://mozilla-hub.atlassian.net/browse/RELENG) archived, we won't be able to interact with it. Thus, we should migrate currently open tickets to Bugzilla. Closed tickets will remain read-only on Jira and won't be ported to Bugzilla.
 
 #### Jira will still be occasionally used by engineers
 
@@ -91,8 +94,7 @@ Considering all of the above, which includes the original intent when we created
 
 ## Open Questions
 
-* Do we want to backport the ~1000 tickets to Bugzilla?
-* Do we want to import the currently open tickets to Bugzilla?
+None.
 
 ## Implementation
 
