@@ -84,7 +84,10 @@ With [RELENG](https://mozilla-hub.atlassian.net/browse/RELENG) archived, we won'
 
 #### Jira will still be occasionally used by engineers
 
-[FFXP](https://mozilla-hub.atlassian.net/browse/FFXP) is one place but RelEng interacts with teams which are solely on Jira. We will comply with what these teams chose.
+We will still interact with Jira, notably:
+
+ * either when requesting something from another who works on Jira.
+ * or when pinged (on [FFXP](https://mozilla-hub.atlassian.net/browse/FFXP) or another team's Jira project).
 
 
 #### There won't be any synchronization between Jira and Bugzilla.
